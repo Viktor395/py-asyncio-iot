@@ -29,7 +29,7 @@ async def main() -> None:
 
     hue_light_id, speaker_id, toilet_id = await asyncio.gather(hue_light_task, speaker_task, toilet_task)
 
-    await run_parallel(service.send_msg(Message(hue_light_id, MessageType.SWITCH_ON))),
+    await run_parallel(service.send_msg(Message(hue_light_id, MessageType.SWITCH_ON)))
 
     await run_sequence(
         service.send_msg(Message(speaker_id, MessageType.SWITCH_ON)),
